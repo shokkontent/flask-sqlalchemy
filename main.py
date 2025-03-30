@@ -14,7 +14,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-'''@app.route("/")
+@app.route("/")
 def index():
     db_sess = db_session.create_session()
     news = db_sess.query(News).filter(News.is_private != True)
@@ -90,8 +90,7 @@ def login():
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
 
-
-@app.route('/news', methods=['GET', 'POST'])
+@app.route('/news',  methods=['GET', 'POST'])
 @login_required
 def add_news():
     form = NewsForm()
@@ -107,7 +106,6 @@ def add_news():
         return redirect('/')
     return render_template('news.html', title='Добавление новости',
                            form=form)
-
 
 @app.route('/news/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -142,7 +140,6 @@ def edit_news(id):
                            form=form
                            )
 
-
 @app.route('/news_delete/<int:id>', methods=['GET', 'POST'])
 @login_required
 def news_delete(id):
@@ -155,11 +152,10 @@ def news_delete(id):
         db_sess.commit()
     else:
         abort(404)
-    return redirect('/')'''
+    return redirect('/')
 
 
 def main():
-    db_session.global_init("db/blogs.db")
     app.run()
 
 
