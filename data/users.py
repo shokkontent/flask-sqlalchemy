@@ -20,8 +20,6 @@ class User(SqlAlchemyBase, UserMixin):
     address = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     email = sqlalchemy.Column(sqlalchemy.String,
                               index=True, unique=True, nullable=True)
-    created_date = sqlalchemy.Column(sqlalchemy.DateTime,
-                                     default=datetime.datetime.now)
     news = orm.relationship("News", back_populates='user')
 
     def __str__(self):

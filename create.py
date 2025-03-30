@@ -7,7 +7,7 @@ from data.users import User
 db_session.global_init("db/blogs.db")
 db_sess = db_session.create_session()
 
-user = User()
+'''user = User()
 user.surname = "Scbfott"
 user.name = "Ridbfley"
 user.age = "21"
@@ -17,9 +17,9 @@ user.address = "mbdfodule_3"
 user.email = "scobdtt_chbdief@marsbd.org"
 db_sess = db_session.create_session()
 db_sess.add(user)
-db_sess.commit()
+db_sess.commit()'''
 
-'''user = User()
+user = User()
 user.surname = "Scgfott"
 user.name = "Ringdley"
 user.age = "22"
@@ -41,7 +41,7 @@ user.address = "module_3"
 user.email = "scobftt_bfchiefbgf@mars.org"
 db_sess = db_session.create_session()
 db_sess.add(user)
-db_sess.commit()'''
+db_sess.commit()
 
 
 '''user = db_sess.query(User).filter(User.id == 1).first()
