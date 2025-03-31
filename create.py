@@ -4,10 +4,10 @@ from data import db_session
 from data.users import User
 
 
-db_session.global_init("db/blogs.db")
+db_session.global_init('db/blogs.db')
 db_sess = db_session.create_session()
 
-'''user = User()
+user = User()
 user.surname = "Scbfott"
 user.name = "Ridbfley"
 user.age = "21"
@@ -17,7 +17,7 @@ user.address = "mbdfodule_3"
 user.email = "scobdtt_chbdief@marsbd.org"
 db_sess = db_session.create_session()
 db_sess.add(user)
-db_sess.commit()'''
+db_sess.commit()
 
 user = User()
 user.surname = "Scgfott"
@@ -48,4 +48,8 @@ db_sess.commit()
 print(user)
 user.name = "Пользователь 1"
 user.created_date = datetime.datetime.now()
-db_sess.commit()'''
+db_sess.commit()
+users = db_sess.query(User).all()
+for user in users:
+    if user.address == "module_1":
+        print(user)'''
