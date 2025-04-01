@@ -15,12 +15,17 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-'''@app.route('/jobs', methods=['GET', 'POST'])
-@login_required
-def add_jobs():
+@login_manager.user_loader
+def load_user(user_id):
     db_sess = db_session.create_session()
-    jobs = Jobs()
-    return render_template('jobs.html', title='Добавление работы')'''
+    return db_sess.query(User).get(user_id)
+
+
+@app.route('/jobs', methods=['GET', 'POST'])
+def add_jobs():
+    '''db_sess = db_session.create_session()
+    jobs = Jobs()'''
+    return render_template('table.html', title='Добавление работы')
 
 
 def main():
